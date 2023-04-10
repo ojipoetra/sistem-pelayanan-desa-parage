@@ -1,0 +1,85 @@
+/* #kopsurat {
+    font-family: 'Times New Roman', Times, serif !important;
+    position: relative;
+}
+
+.headkop {
+    border-bottom: 5px double black;
+}
+
+.logodesa {
+    width: 80px;
+    height: 100px;
+}
+
+#kopsurat .alamat-desa {
+    font-style: italic;
+    font-weight: bold;
+}
+
+#kopsurat .ket {
+    text-indent: 45px;
+}
+
+@media print {
+    #kopsurat {
+        background: #fff !important;
+        box-shadow: none !important;
+        position: relative;
+    }
+
+    .headkop {
+        border-bottom: 5px double black;
+    }
+
+    .btn {
+        display: none;
+    }
+} */
+
+
+
+
+
+
+
+
+.kopsurat {
+    font-family: 'Times New Roman', Times, serif;
+
+}
+
+.head {
+    border-bottom: double 7px black;
+}
+
+
+
+.head .kop {
+    padding-right: 35px;
+}
+
+.head .logodesa {
+    padding-top: 30px;
+    width: 80px;
+    height: 105px;
+    float: left;
+}
+
+
+.head h1,
+.head p {
+    text-align: center;
+}
+
+
+.head .kop p {
+    font-style: italic;
+    font-weight: bold;
+}
+
+.kopsurat .suket,
+.kopsurat .nosurat {
+    text-align: center;
+    line-height: 5px;
+}

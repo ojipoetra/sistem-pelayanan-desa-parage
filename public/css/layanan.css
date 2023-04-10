@@ -1,0 +1,26 @@
+.layanan-box {
+    width: 150px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #050a30;
+    border-bottom: #050a30 solid 3px;
+    background: #fff;
+    box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+    transition: all 0.5s ease-in;
+}
+
+/* .layanan .layanan-box {
+    opacity: 1;
+    transform: translate(0, -50px);
+}
+
+.layanan .layanan-box.load {
+    opacity: 1;
+    transform: translate(0, 0);
+} */
+
+.layanan .box:hover {
+    transform: scale(1.1);
+    z-index: 100;
+}
