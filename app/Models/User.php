@@ -42,4 +42,15 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function Admin()
+    {
+        // method Admin() akan di panggil di setiap controlle yang membutuhkan
+        return $this->is_admin;
+    }
+
+    public function domisili()
+    {
+        return $this->hasMany(Domisili::class);
+    }
 }

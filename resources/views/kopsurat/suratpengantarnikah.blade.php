@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Pengantar Nikah</title>
 </head>
 <body>
 
@@ -35,6 +35,7 @@
     .page .header{
         position: relative;
         text-align: center;
+        font-weight: bold
     }
 
     .page .model{
@@ -54,19 +55,30 @@
         text-align: justify;  
     }
 
-    .page .sekdes{
+    .page .tanda-tangan{
         text-align: center;
         float: right;
+        padding-right: 40px;
     }
 
-    .page .sekdes .tanggal_penetapan{
+    .page .tanda-tangan .tanggal_penetapan{
         padding-bottom: 40px;
+    }
+
+    .tanda-tangan-calon{
+        margin-top: 50px;
+    }
+    .tanda-tangan-calon .tanda-tangan-suami{
+        float: left; 
+        padding-left: 30px
     }
 
     /* page 2 */
     .tanggal{
         padding-top: 10px;
     }
+
+   
    
 </style>
 
@@ -97,7 +109,7 @@
                 <td>LEBAK</td>
             </tr>
         </table>
-        <div class="kop_surat"><u>{{ $title }}</u><br><div>No:474/..... -Ket/Ds-2011/{{ bulanHelper::bulan() }}/{{ Carbon\Carbon::now()->year}}</div></div>
+        <div class="kop_surat" ><u>{{ $title }}</u><br><div>No:141.2/..... / Ket /Ds-2011/{{ bulanHelper::bulan() }}/{{ Carbon\Carbon::now()->year}}</div></div>
         <p style="line-height: 1px">Yang bertanda tangan di bawah ini menjelaskan dengan sesungguhnya bahwa :</p>
         <table>
             <tr>
@@ -276,9 +288,9 @@
         <p>Demikian, Surat pengantar ini dibuat dengan mengingat sumpah jabatan dan untuk di pergunakan sebagaimana
             mestinya
         </p>
-        <div class="sekdes">
+        <div class="tanda-tangan">
             <p class="tanggal_penetapan">Parage, {{ Carbon\Carbon::now()->isoFormat('D MMMM Y') }} <br>Mengetahui <br>a.n Kepala Desa Parage <br>Sekretaris Desa</p>
-            <div><u style="font-weight: bold">MUHAMAD JUHANDI,S.IKom</u> <br> <span></span> NRPDes.19940527201708.2054</div>
+            <div><u style="font-weight: bold; ">MUHAMAD JUHANDI,S.IKom</u> <br> <span></span> NRPDes.19940527201708.2054</div>
         </div>
     </div>
     <!-- akhir lampiran N1 -->
@@ -289,9 +301,9 @@
             BIMBINGAN MASYARAKAT
             ISLAM <br> NOMOR 473 TAHUN 2020 <br> TENTANG
             <br> PETUNJUK TEKNIS PELAKSANAAN PENCATATAN PERNIKAHAN</p>
-        <div class="header"><span>FORMULIR PERMOHONAN KEHENDAK NIKAH <span class="model">Model N2</span></span></div>
+        <div class="header"><span><u> FORMULIR PERMOHONAN KEHENDAK NIKAH </u><span class="model">Model N2</span></span></div>
         
-        <div class="tanggal"><span>Prihal : Permohonan kehendak nikah </span> <span style="padding-left: 310px">Parage, {{ Carbon\Carbon::now()->isoFormat('D MMMM Y') }}</span></div>
+        <div class="tanggal"><span>Prihal : Permohonan Kehendak Nikah </span> <span style="padding-left: 310px">Parage, {{ Carbon\Carbon::now()->isoFormat('D MMMM Y') }}</span></div>
         
         
         <p>Kepada yth, <br>Kepala KUA Kecamatan /PPN LN <br>di Tempat</p>
@@ -373,12 +385,12 @@
                 Luar Negeri</p>
             <p>...............................................</p>
         </div>
-        <div style="float: right;">
+        <div class="tanda-tangan">
             <p style="padding-bottom: 80px;">Wasalam,<br>Pemohon</p> 
             @if ($pengantarnikah->kelamin_pemohon === 'laki-laki')
-                <p style="font-weight: bold;"><u>{{ $pengantarnikah->nama_pemohon }}</u></p>
+                <p style="font-weight: bold; text-transform: uppercase;"><u>{{ $pengantarnikah->nama_pemohon }}</u></p>
             @elseif($pengantarnikah->kelamin_pemohon === 'perempuan')
-                <p style="font-weight: bold;"><u>{{ $pengantarnikah->nama_pemohon }}</u></p>
+                <p style="font-weight: bold; text-transform: uppercase;"><u>{{ $pengantarnikah->nama_pemohon }}</u></p>
             @endif
         </div>
     </div>
@@ -390,7 +402,7 @@
             BIMBINGAN MASYARAKAT
             ISLAM <br> NOMOR 473 TAHUN 2020 <br> TENTANG
             <br> PETUNJUK TEKNIS PELAKSANAAN PENCATATAN PERNIKAHAN</p>
-        <div class="header"><span>FORMULIR PERSETUJUAN CALON PENGANTIN <span class="model">Model N4</span></span></div>
+        <div class="header"><span><u> FORMULIR PERSETUJUAN CALON PENGANTIN </u><span class="model">Model N4</span></span></div>
         <p>Yang bertanda tangan di bawah ini:</p>
         <p style="line-height: 1px;">A. Calon Suami</p>
         <table style="margin-left: 20px;">
@@ -556,24 +568,24 @@
             sendiri, tanpa ada paksaan dari siapapun juga, setuju untuk melangsungkan
             pernikahan. <br>Demikian Surat persetujuan ini di buat untuk digunakan seperlunya.
         </p>
-        <div style="margin-top: 50px;">
-            <div style="float: left;">
+        <div class="tanda-tangan-calon">
+            <div class="tanda-tangan-suami">
                 <p>.</p>
                 <p style="padding-bottom: 80px; text-align: center;">Calon Suami</p>
                 
                 @if ($pengantarnikah->kelamin_pemohon === 'laki-laki')
-                    <p style="font-weight: bold;"><u>{{ $pengantarnikah->nama_pemohon }}</u></p>
+                    <p style="font-weight: bold; text-transform: uppercase;"><u>{{ $pengantarnikah->nama_pemohon }}</u></p>
                 @else
-                    <p style="font-weight: bold;"><u>{{ $pengantarnikah->nama_calon }}</u></p>
+                    <p style="font-weight: bold; text-transform: uppercase;"><u>{{ $pengantarnikah->nama_calon }}</u></p>
                 @endif
             </div>
-            <div style="float: right; text-align: center">
+            <div class="tanda-tangan">
                 <p>Parage, {{ Carbon\Carbon::now()->isoFormat('D MMMM Y') }}</p>
                 <p style="padding-bottom: 80px;">Calon Istri</p>
                 @if ($pengantarnikah->kelamin_pemohon === 'perempuan')
-                    <p style="font-weight: bold;"><u>{{ $pengantarnikah->nama_pemohon }}</u></p>
+                    <p style="font-weight: bold; text-transform: uppercase;"><u>{{ $pengantarnikah->nama_pemohon }}</u></p>
                 @else
-                    <p style="font-weight: bold;"><u>{{ $pengantarnikah->nama_calon }}</u></p>
+                    <p style="font-weight: bold; text-transform: uppercase;"><u>{{ $pengantarnikah->nama_calon }}</u></p>
                 @endif
             </div>
         </div>
@@ -586,7 +598,7 @@
             BIMBINGAN MASYARAKAT
             ISLAM <br> NOMOR 473 TAHUN 2020 <br> TENTANG
             <br> PETUNJUK TEKNIS PELAKSANAAN PENCATATAN PERNIKAHAN</p>
-        <div class="header"><span>FORMULIR SURAT IZIN ORANG TUA <span class="model">Model N5</span></span></div>
+        <div class="header"><span><u> FORMULIR SURAT IZIN ORANG TUA </u><span class="model">Model N5</span></span></div>
         <p>Yang bertanda tangan di bawah ini:</p>
         <table>
             <tr>
@@ -615,7 +627,13 @@
                 <td>4. </td>
                 <td>Tempat dan tanggal lahir</td>
                 <td> : </td>
-                <td>{{ $pengantarnikah->tempatlahir_ayah }}, {{Carbon\Carbon::parse($pengantarnikah->tanggallahir_ayah)->isoFormat('D MMMM Y') }}</td>
+                <td>{{ $pengantarnikah->tempatlahir_ayah }},
+                    @if ($pengantarnikah->tempatlahir_ayah === "")
+                        .
+                    @else
+                        {{ Carbon\Carbon::parse($pengantarnikah->tanggallahir_ayah)->isoFormat('D MMMM Y') }}</td>
+                    @endif
+                    
             </tr>
             <tr>
                 <td></td>
@@ -671,7 +689,12 @@
                 <td>4. </td>
                 <td>Tempat dan tanggal lahir</td>
                 <td> : </td>
-                <td>{{ $pengantarnikah->tempatlahir_ibu }}, {{Carbon\Carbon::parse($pengantarnikah->tanggallahir_ibu)->isoFormat('D MMMM Y') }}</td>
+                <td>{{ $pengantarnikah->tempatlahir_ibu }}, 
+                    @if ($pengantarnikah->tempatlahir_ibu === "")
+                        .
+                    @else
+                        {{Carbon\Carbon::parse($pengantarnikah->tanggallahir_ibu)->isoFormat('D MMMM Y') }}</td>
+                    @endif     
             </tr>
             <tr>
                 <td></td>
@@ -873,14 +896,22 @@
             dan untuk digunakan seperlunya.
         </p>
         <div>
-            <div style="float: left;">
+            <div style="float: left; padding-left: 30px; text-align: center">
                 <p>.</p>
                 <p style="text-align: center; padding-bottom: 40px">Ayah/wali/pengampu</p>
-                <p style="font-weight: bold;"><u>{{ $pengantarnikah->nama_ayah }}</u></p>
+                @if ($pengantarnikah->nik_ayah == "")
+                    <p>--------------------------</p>
+                @else
+                    <p style="font-weight: bold; text-transform:uppercase;"><u>{{ $pengantarnikah->nama_ayah }}</u></p>
+                @endif
             </div>
-            <div style="float: right; text-align: center;">
+            <div class="tanda-tangan">
                 <p style="padding-bottom: 40px">Parage, {{ Carbon\Carbon::now()->isoFormat('D MMMM Y') }} <br>Ibu/wali/pengampu</p>
-                <p style="font-weight: bold;"><u>{{ $pengantarnikah->nama_ibu }}</u></p>
+                @if ($pengantarnikah->nik_ibu == "")
+                    <p>--------------------------</p>
+                @else
+                    <p style="font-weight: bold; text-transform:uppercase;"><u>{{ $pengantarnikah->nama_ibu }}</u></p>
+                @endif
             </div>
         </div>
     </div>
@@ -994,17 +1025,16 @@
                 tidak benar maka saya bersedia dituntut di muka pengadilan yang berwenang dengan tidak melibatkan Kantor
                 Urusan Agama manapun dan saksi-saksi yang turut menandatangani surat pernyataan ini.</p>
             <div style="margin-top: 100px;">
-                <div style="float: left;">
+                <div style="float: left; padding-left: 30px">
 
                     <p style="padding-bottom: 80px; text-align: center;">Mengetahui,<br>a.n.Kepala Desa Parage
                         <br>Sekertaris Desa </p>
-                    <p style="font-weight: bold; line-height: 1px;"><u>MUHAMMAD JUHANDI, S.Ikom</u></p>
-                    <p style="text-align: center;">NRPDes.19940527201708.2054</p>
+                        <div><u style="font-weight: bold; ">MUHAMAD JUHANDI,S.IKom</u> <br> <span></span> NRPDes.19940527201708.2054</div>
                 </div>
-                <div style="float: right;">
+                <div style="float: right; padding-right: 30px">
                     <p>Parage, {{ Carbon\Carbon::now()->isoFormat('D MMMM Y') }}</p>
                     <p style="padding-bottom: 80px; text-align: center">Yang Menyatakan</p>
-                    <p style="font-weight: bold; text-align: center"><u>@if ($pengantarnikah->kelamin_pemohon === 'laki-laki') {{ $pengantarnikah->nama_pemohon }} @elseif($pengantarnikah->kelamin_pemohon === 'perempuan') {{ $pengantarnikah->nama_pemohon }} @endif</u></p>
+                    <p style="font-weight: bold; text-align: center; text-transform:uppercase;"><u>@if ($pengantarnikah->kelamin_pemohon === 'laki-laki') {{ $pengantarnikah->nama_pemohon }} @elseif($pengantarnikah->kelamin_pemohon === 'perempuan') {{ $pengantarnikah->nama_pemohon }} @endif</u></p>
                 </div>
             </div>
     </div>

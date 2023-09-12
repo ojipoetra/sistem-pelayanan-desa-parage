@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>cetak</title>
     <link rel="stylesheet" href="{{ public_path('css/kopsurat.css') }}">
 </head>
+
 <body>
     <div id="kopsurat">
         {{-- head surat --}}
@@ -17,16 +19,20 @@
                 Kab.Lebak-Banten, 42356<br>Email : <a href="#">desaparage@gmail.com</a></p>
         </div>
         {{-- <h3 style="text-align: center;"><u>{{ $title }}</u></h3> --}}
-        <div style="text-align: center; font-size: 19px; font-weight: bold;"><u>{{ $title }}</u><br><div style="text-align: center; font-size:15px; font-weight: normal;">No:474/..... -Ket/Ds-2011/{{ bulanHelper::bulan() }}/{{ Carbon\Carbon::now()->year}}</div></div>
+        <div style="text-align: center; font-size: 19px; font-weight: bold;"><u>{{ $title }}</u><br>
+            <div style="text-align: center; font-size:15px; font-weight: normal;">No:141.1/......
+                -Ket/Ds-2011/{{ bulanHelper::bulan() }}/{{ Carbon\Carbon::now()->year }}</div>
+        </div>
         {{-- <p style="text-align: center;">No:474/..... -Ket/Ds-2011/{{ bulanHelper::bulan() }}/{{ Carbon\Carbon::now()->year}}</p> --}}
         {{-- akhir head surat --}}
 
         {{-- body surat --}}
-            <div class="container">
-                @yield('body')
-            </div>
+        <div class="container">
+            @yield('body')
+        </div>
         {{-- akhir body surat --}}
     </div>
 
 </body>
+
 </html>

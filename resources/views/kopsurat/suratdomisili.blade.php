@@ -1,4 +1,4 @@
-@extends('kopsurat.mainsurat')
+{{-- @extends('kopsurat.mainsurat')
 
 @section('body')
 
@@ -55,7 +55,7 @@
     </table>
     <p class="ket">Nama Tersebut di atas berdasarkan keterangan dari pemohon, bahwa saat ini sedang
         berdomisili/Tinggal di
-        {{ $domisili->alamat }} Rt 008 Rw 002 Desa Parage Kecamatan Cikulur Kabupaten Lebak-Banten Kode Pos 42356, dan
+        {{ $domisili->alamat }}  Kode Pos 42356, dan
         telah tinggal pada alamat tersebut lebih dari satu tahun.</p>
     <p class="ket">Demikian Surat Keterangan Domisili ini dibuat dengan sebenarnya, dan untuk di pergunakan
         sebagaimana
@@ -78,4 +78,4 @@
         </div>
     </div>
 <a href="/cetak/{{ $domisili->id }}">Cetak</a>
-@endsection
+@endsection --}}

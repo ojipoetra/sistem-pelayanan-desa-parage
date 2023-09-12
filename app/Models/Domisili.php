@@ -9,5 +9,10 @@ class Domisili extends Model
 {
     use HasFactory;
     protected $table = 'domisili';
-    protected $guarded = ['id'];
+    protected $guarded = ['id', 'user_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

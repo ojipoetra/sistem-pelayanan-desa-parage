@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Freehand&family=Poppins:wght@300;400&display=swap");
+
 .layanan-box {
     width: 150px;
     border-radius: 5px;
@@ -8,6 +10,11 @@
     box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
     padding: 8px;
     transition: all 0.5s ease-in;
+}
+
+body {
+    /* font-family: 'Playfair', serif; */
+    font-family: "Poppins", sans-serif !important;
 }
 
 /* .layanan .layanan-box {

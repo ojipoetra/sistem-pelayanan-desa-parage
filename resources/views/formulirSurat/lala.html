@@ -1,0 +1,15 @@
+Domisili::create([
+'user_id' => 2,
+'nama' => 'Madsura',
+'nik' => '93602183938884712',
+'tempatlahir' => 'lebak',
+'tanggallahir' => '20-09-1933',
+'jnskelamin' => 'laki-laki',
+'kewarganegaraan' => 'indonesia',
+'agama' => 'islam',
+'status' => 'belum kawin',
+'pekerjaan' => 'pelajar',
+'alamat' => 'kp. parage panjang'
+]);
+
+Domisili::where('user_id', 1)->get()

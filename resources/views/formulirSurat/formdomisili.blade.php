@@ -13,12 +13,13 @@
                 @csrf
                 <div class="col-md-6 pt-2">
                     <label for="nama" class="form-label"><i class="bi bi-person"></i> Nama Lengkap</label>
-                    <input type="text" name="nama" class="form-control dataInput" id="nama" placeholder="masukan nama sesuai ktp" autocomplete="off" autofocus>
+                    <input type="text" name="nama" class="form-control dataInput" id="nama" value="{{ $user->nama }}" placeholder="masukan nama sesuai ktp" autocomplete="off" autofocus>
                     <p class="invalid-feedback">Pastikan data yang di input benar</p>
                 </div>
                 <div class="col-md-6 pt-2">
                     <label for="nik" class="form-label"><i class="bi bi-person"></i> NIK</label>
-                    <input type="text" name="nik" class="form-control" id="nik" placeholder="masukan nik sesuai ktp" autocomplete="off">
+                   
+                    <input type="text" name="nik" class="form-control" id="nik" value="{{ $user->ktp }}" placeholder="masukan nik sesuai ktp" autocomplete="off">
                     <p class="invalid-feedback" id="pesan">Pastikan data yang di input benar</p>
                   </div>
                 <div class="col-md-6 pt-2">

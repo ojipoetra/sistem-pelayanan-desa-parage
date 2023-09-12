@@ -10,7 +10,7 @@ form.addEventListener('submit', e => {
 
     // const inputValid = /^[a-zA-Z\s]+$/
     // input boleh menggunakan huruf besar atau juga kecil dan boleh mengandung titik
-    const inputValid = /^[a-zA-Z\s.]+$/
+    const inputValid = /^[a-zA-Z0-9\/.\s-]+$/
     // nik wajib di awali dari 1 e/d 9 tidak boleh di awali dengan 0 dan hanya di perbolehkan hanya
     // angka saja
     const nikvalid = /^[1-9][0-9]*$/

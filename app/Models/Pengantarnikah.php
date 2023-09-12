@@ -10,5 +10,10 @@ class Pengantarnikah extends Model
 {
     use HasFactory;
     protected $table = 'suratpengantarnikah';
-    protected $guarded = ['id'];
+    protected $guarded = ['id', 'user_id'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

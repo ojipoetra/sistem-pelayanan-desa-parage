@@ -537,6 +537,10 @@ footer .copyright p {
     }
 
     /* halaman pendafataran */
+    .pendaftaran {
+        width: 50%;
+    }
+
     .pendaftaran:before {
         content: '';
         top: 50px;

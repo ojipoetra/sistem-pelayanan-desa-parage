@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('suratpengantarnikah', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('nama_pemohon');
             $table->string('nik_pemohon');
             $table->string('kelamin_pemohon');
@@ -42,27 +43,27 @@ return new class extends Migration
             $table->string('tempat_akad');
 
             // data orang tua ayah
-            $table->string('nama_ayah');
-            $table->string('bin');
-            $table->string('nik_ayah');
-            $table->string('tempatlahir_ayah');
-            $table->string('tanggallahir_ayah');
-            $table->string('kewarganegaraan_ayah');
-            $table->string('agama_ayah');
-            $table->string('pekerjaan_ayah');
-            $table->string('alamat_ayah');
+            $table->string('nama_ayah')->nullable();
+            $table->string('bin')->nullable();
+            $table->string('nik_ayah')->nullable();
+            $table->string('tempatlahir_ayah')->nullable();
+            $table->string('tanggallahir_ayah')->nullable();
+            $table->string('kewarganegaraan_ayah')->nullable();
+            $table->string('agama_ayah')->nullable();
+            $table->string('pekerjaan_ayah')->nullable();
+            $table->string('alamat_ayah')->nullable();
             // akhir orang tua ayah
 
             // data orang tua ibu
-            $table->string('nama_ibu');
-            $table->string('binti');
-            $table->string('nik_ibu');
-            $table->string('tempatlahir_ibu');
-            $table->string('tanggallahir_ibu');
-            $table->string('kewarganegaraan_ibu');
-            $table->string('agama_ibu');
-            $table->string('pekerjaan_ibu');
-            $table->string('alamat_ibu');
+            $table->string('nama_ibu')->nullable();
+            $table->string('binti')->nullable();
+            $table->string('nik_ibu')->nullable();
+            $table->string('tempatlahir_ibu')->nullable();
+            $table->string('tanggallahir_ibu')->nullable();
+            $table->string('kewarganegaraan_ibu')->nullable();
+            $table->string('agama_ibu')->nullable();
+            $table->string('pekerjaan_ibu')->nullable();
+            $table->string('alamat_ibu')->nullable();
             // akhir data orang tua ibu
             $table->timestamps();
         });

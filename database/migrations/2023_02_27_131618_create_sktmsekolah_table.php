@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('sktmsekolah', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('nama_siswa');
             $table->string('tempatlahir_siswa');
             $table->string('tanggallahir_siswa');
