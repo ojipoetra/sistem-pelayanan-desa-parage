@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     {{-- font goole --}}
 
+    {{-- Trix editor --}}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+
     {{-- akhir font google --}}
     <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/layanan.css">
@@ -35,47 +39,50 @@
                 <a href="{{ url('/dashboard') }}"
                     class="list-group-item list-group-item-action text-light bg-transparent  {{ Request::is('dashboard*') ? 'aktip' : '' }}"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
+                <a href="{{ url('/buat-berita') }}"
+                    class="list-group-item list-group-item-action text-light bg-transparent  {{ Request::is('buat-berita*') ? 'aktip' : '' }}"><i
+                        class="bi bi-newspaper"></i> Buat Berita</a>
                 <a href="{{ url('/pengajuan-surat') }}"
                     class="list-group-item list-group-item-action bg-transparent text-light  {{ Request::is('pengajuan-surat*') ? 'aktip' : '' }} "><i
                         class="bi bi-envelope-paper-fill"></i> Pengajuan Surat</a>
 
-            {{-- jika yg login bukan admin maka hiden dengan blade @can --}}
-            {{-- ('isAdmin di ambil dari AppServiceProvider') --}}
+                {{-- jika yg login bukan admin maka hiden dengan blade @can --}}
+                {{-- ('isAdmin di ambil dari AppServiceProvider') --}}
                 @can('isAdmin')
-                <div class="dropend list-group-item text-light bg-transparent">
-                    <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false"> <i class="bi bi-folder-plus"></i>
-                        Register
-                    </a>
+                    <div class="dropend list-group-item text-light bg-transparent">
+                        <a class="btn btn-success dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false"> <i class="bi bi-folder-plus"></i>
+                            Register
+                        </a>
 
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-text-fill"></i>
-                                Register Surat Keterangan</a></li>
-                        <hr class="dropdown-divider">
-                        <li><a class="dropdown-item" href="{{ url('/register-nikah') }}"><i
-                                    class="bi bi-person-hearts"></i> Register Pengantar Nikah</a></li>
-                        <hr class="dropdown-divider">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-person-vcard-fill"></i> Register KK
-                                & KTP</a></li>
-                        <hr class="dropdown-divider">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-repeat"></i> Register Pindah &
-                                Datang</a></li>
-                        <hr class="dropdown-divider">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-reddit"></i> Register Kelahiran &
-                                Kematian</a></li>
-                    </ul>
-                </div>
-                
-                
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-file-earmark-text-fill"></i>
+                                    Register Surat Keterangan</a></li>
+                            <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="{{ url('/register-nikah') }}"><i
+                                        class="bi bi-person-hearts"></i> Register Pengantar Nikah</a></li>
+                            <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person-vcard-fill"></i> Register KK
+                                    & KTP</a></li>
+                            <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-repeat"></i> Register Pindah &
+                                    Datang</a></li>
+                            <hr class="dropdown-divider">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-reddit"></i> Register Kelahiran &
+                                    Kematian</a></li>
+                        </ul>
+                    </div>
 
-                <a href="{{ url('/surat-masuk') }}"
-                    class="list-group-item list-group-item-action bg-transparent text-light  {{ Request::is('surat-masuk*') ? 'aktip' : '' }} "><i
-                        class="bi bi-file-earmark-pdf-fill"></i> Surat Masuk</a>
-                <a href="{{ url('/surat-keluar') }}"
-                    class="list-group-item list-group-item-action bg-transparent text-light  {{ Request::is('surat-keluar*') ? 'aktip' : '' }} "><i
-                        class="bi bi-send-plus"></i> Surat Keluar</a>
+
+
+                    <a href="{{ url('/surat-masuk') }}"
+                        class="list-group-item list-group-item-action bg-transparent text-light  {{ Request::is('surat-masuk*') ? 'aktip' : '' }} "><i
+                            class="bi bi-file-earmark-pdf-fill"></i> Surat Masuk</a>
+                    <a href="{{ url('/surat-keluar') }}"
+                        class="list-group-item list-group-item-action bg-transparent text-light  {{ Request::is('surat-keluar*') ? 'aktip' : '' }} "><i
+                            class="bi bi-send-plus"></i> Surat Keluar</a>
                 @endcan
-            {{-- Akhir @can('isAdmin') --}}
+                {{-- Akhir @can('isAdmin') --}}
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -97,7 +104,8 @@
                     <ul class="dropdown-menu">
                         <li class=""><a class="dropdown-item" href="#"><i class="bi bi-person-circle"></i>
                                 Profil</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear-fill"></i> Pengaturan</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear-fill"></i> Pengaturan</a>
+                        </li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

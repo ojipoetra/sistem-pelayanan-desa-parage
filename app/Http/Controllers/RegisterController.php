@@ -6,6 +6,7 @@ use App\Models\Register;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -41,13 +42,15 @@ class RegisterController extends Controller
             [
                 'nama' => 'required',
                 'ktp' => 'required|numeric|unique:users',
-                'alamat' => 'required',
-                'rtrw' => 'required',
-                'nohp' => 'required',
+                // // 'alamat' => 'required',
+                // // 'rtrw' => 'required',
+                // 'nohp' => 'required',
                 'email' => 'required|email|unique:users',
                 'password' => 'required',
             ]
         );
+
+        $validasi['nama'] = Str::words($request->nama, 1);
 
         // encripsi password 
         // ambil variable validasi isi key dari name = isi dengan method bcrypt(masukan variable validasi['isi key nya'])

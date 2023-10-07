@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomisiliController;
 use App\Http\Controllers\LoginController;
@@ -41,13 +42,11 @@ Route::get('/tentang', function () {
     return view('components/tentang', ['title' => 'tentang']);
 });
 
-Route::get('/berita', function () {
-    return view('components/berita');
-});
-
-// Route::get('/login', function () {
-//     return view('components/login', ["title" => "login"]);
+// Route::get('/berita', function () {
+//     return view('components/berita');
 // });
+
+
 
 // middleware('guest')->gunanya untuk mencegah user supaya keluar melalui tombol logout
 
@@ -60,17 +59,12 @@ Route::get('/email/verify', [VerificationController::class, 'notice'])->middlewa
 Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->middleware(['auth', 'signed'])->name('verification.verify');
 // akhir email verification
 
-// Route::get('/register', function () {
-//     return view('components/formpendaftaran', ["title" => "Dafrar"]);
-// });
+
 
 
 Route::get('/register', [RegisterController::class, 'create']);
 Route::post('/register', [RegisterController::class, 'store']);
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard/dashboard', ["title" => "Dashboard"]);
-// })->name('dashboard')->middleware(['auth', 'verified']);
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware(['auth', 'verified']);
 
@@ -78,42 +72,25 @@ Route::get('/pengajuan-surat', function () {
     return view('dashboard/konten', ["title" => "Pengajuan Surat"]);
 })->name('pengajuan-surat')->middleware('auth');
 
-// Route::get('/list-surat', function () {
-//     return view('dashboard/list', ['title' => "List Surat"]);
-// })->name('list-surat')->middleware('auth');
-
-// Route::get('/detail-surat', function () {
-//     return view('dashboard/detail', ['title' => "Detail Surat"]);
-// });
 
 
-
-
-// Route::get('/mainsurat', function () {
-//     return view('kopsurat/mainsurat', ["title" => "surat"]);
-// });
-
-
-
-// Route::get('/sktm-rs', function () {
-//     return view('kopsurat/sktmrs', ["title" => "SKTM-RUMAH SAKIT"]);
-// });
-
-// Route::get('/domisili', function () {
-//     return view('kopsurat/suratdomisili', ["title" => "SKTM-RUMAH SAKIT"]);
-// });
 
 Route::get('/formsktmrs', function () {
     return view('formulirSurat/formsktmrs', ["title" => "FORMULIR SKTM RS"]);
 });
 
-// Route::get('/formdomisili', function () {
-//     return view('formulirSurat/formdomisili', ["title" => "FORMULIR DOMISILI"]);
-// });
-
 Route::get('/formsktmsekolah', function () {
     return view('formulirSurat/formsktmsekolah', ["title" => "FORMULIR SKTM SEKOLAH"]);
 });
+
+// Buat Berita
+Route::get('/', [BeritaController::class, 'index']);
+Route::get('/berita/{berita:slug}', [BeritaController::class, 'show'])->name('berita');
+Route::get('/buat-berita', [BeritaController::class, 'create'])->name('buat-berita')->middleware('auth');
+Route::get('/buat-berita/cekslug', [BeritaController::class, 'cekslug'])->middleware('auth');
+Route::post('/buat-berita', [BeritaController::class, 'store'])->middleware('auth');
+// Akhir Buat Berita
+
 
 // domisili
 Route::get('/domisili', [DomisiliController::class, 'index'])->name('domisili')->middleware('auth');
@@ -153,6 +130,5 @@ Route::delete('suratsku/{sku}', [SkuController::class, 'destroy'])->middleware('
 // surat SKU
 
 // Register 
-// Route::resource('/dashboard/register-nikah', RegisterNikahController::class);
 Route::get('/register-nikah', [RegisterNikahController::class, 'index']);
 // Register 
