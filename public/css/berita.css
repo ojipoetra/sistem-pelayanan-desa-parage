@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Freehand&family=Poppins:wght@300;400&display=swap");
+.color-nav-berita {
+    background: linear-gradient(to top right, #a100ffff, #119cddff);
+    font-family: "Popins", sans-serif;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+.color-nav-berita .nav-title-categori {
+    color: #fff;
+}
+article {
+    background: #fff;
+    border-radius: 0 0 10px 10px;
+    padding-bottom: 15px;
+}
+.berita-hero {
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.side-categori {
+    height: 100px;
+    background: #e7e5fd;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #0000001a;
+}
+.side-categori .image-categori {
+    height: 90px;
+    width: 100px;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+    .berita-hero {
+        height: 200px;
+    }
+    .px-5 {
+        padding: 1.5rem !important;
+    }
+    .side-categori {
+        margin: 10px;
+    }
+}

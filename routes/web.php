@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\CategoriController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DomisiliController;
 use App\Http\Controllers\LoginController;
@@ -86,6 +87,12 @@ Route::get('/formsktmsekolah', function () {
 // Buat Berita
 Route::get('/', [BeritaController::class, 'index']);
 Route::get('/berita/{berita:slug}', [BeritaController::class, 'show'])->name('berita');
+// Route::get('/berita/{categori:slug}', [BeritaController::class, 'showCategoriById'])->name('berita');
+// Route::get('/kategori/{categori:slug}', [BeritaController::class, 'showCategoriById'])->name('kategori');
+// Route::get('/kategori/{slug}', [BeritaController::class, 'showCategoriById'])->name('kategori');
+
+Route::get('/categori/{categori:slug}', [CategoriController::class, 'index'])->name('categori');
+
 Route::get('/buat-berita', [BeritaController::class, 'create'])->name('buat-berita')->middleware('auth');
 Route::get('/buat-berita/cekslug', [BeritaController::class, 'cekslug'])->middleware('auth');
 Route::post('/buat-berita', [BeritaController::class, 'store'])->middleware('auth');

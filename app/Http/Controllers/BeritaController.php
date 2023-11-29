@@ -6,7 +6,6 @@ use App\Models\Berita;
 use App\Models\Categori;
 use Illuminate\Http\Request;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
-use GuzzleHttp\Promise\Create;
 use Illuminate\Support\Str;
 
 class BeritaController extends Controller
@@ -19,7 +18,8 @@ class BeritaController extends Controller
     public function index()
     {
         $berita = Berita::with('categori')->latest()->get();
-        return view('components.beranda', ['title' => 'Berta post', 'beritas' => $berita]);
+
+        return view('components.beranda', ['title' => 'Berta Post', 'beritas' => $berita]);
     }
 
     /**
@@ -52,7 +52,7 @@ class BeritaController extends Controller
         if ($request->file('image')) {
             $validateData['image'] = $request->file('image')->store('post-images');
         }
-        $validateData['title'] = Str::words($request->title, 14);
+        $validateData['title'] = Str::title($request->title);
         //['user_id'] -> adalah nama fild yang terdapat di table user
         $validateData['user_id'] = auth()->user()->id;
         //['excerpt'] -> adalah nama fild yang terdapat di table post
@@ -60,18 +60,6 @@ class BeritaController extends Controller
         $validateData['excerpt'] = Str::limit($request->body, 300);
 
         Berita::create($validateData);
-
-
-        // Berita::create([
-        //     'user_id' => auth()->user()->id,
-        //     'categori_id' => $request->categori_id,
-        //     'title' => $request->title,
-        //     'slug' => Str::slug($request->title),
-        //     'excerpt' => Str::limit($request->body, 100),
-        //     'body' => $request->body
-        // ]);
-
-
 
         return redirect('/')->with('success', 'New Post Has Been Added!');
     }
@@ -84,10 +72,18 @@ class BeritaController extends Controller
      */
     public function show(Berita $berita)
     {
+        $categoriAll = Categori::all();
         $categoripilih = $berita->categori_id;
         $allBerita = Berita::where('categori_id', $categoripilih)->get();
-        return view('components.berita', ['title' => 'Baca Berita', 'berita' => $berita, 'allBerita' => $allBerita]);
+        // $allBerita = Berita::with('categori')->where('categori_id', $berita->categori_id)->get();
+        return view('components.berita', ['title' => 'Baca Berita', 'berita' => $berita, 'allBerita' => $allBerita], compact('categoriAll'));
     }
+
+    // public function showCategoriById($slug)
+    // {
+    //     $categori = Categori::where('slug', $slug)->get();
+    //     return view('components.categori', ['title' => 'Kategori Berita', 'categori' => $categori]);
+    // }
 
     /**
      * Show the form for editing the specified resource.

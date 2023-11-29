@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Berita;
 use App\Models\Categori;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,12 @@ class CategoriController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Berita $berita)
     {
-        $categori =  Categori::all();
-        return $categori;
+        $categori_id = $berita->categori_id;
+        $categori = Berita::with('categori')->where('categori_id', $categori_id)->latest()->get();
+        dd($categori);
+        return view('components.categori', ['title' => 'Kategori Berita', 'categori' => $categori]);
     }
 
     /**

@@ -11,79 +11,69 @@
 
 
         <!-- Berita Terbaru -->
-        <article class="my-3 overflow-hidden">
+        <nav class="navbar navbar-expand-lg color-nav-berita navbar-dark">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse nav-title-categori" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        @foreach ($categoriAll as $categori)
+                            <li class="nav-item ">
+                                <a class="nav-link active" aria-current="page"
+                                    href="/kategori/{{ $categori->slug }}">{{ $categori->nama }}</a>
+                                {{-- <a class="nav-link"
+                                    href="{{ route('kategori', $categori->slug) }}">{{ $categori->nama }}</a> --}}
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <article class="mb-3 overflow-hidden w-100">
             <div class="row">
-                <div class="col-md-8 px-5 rounded overflow-hidden" style="background: #F6F6F6; ">
-                    <img src="{{ asset('storage/' . $berita->image) }}" alt="" class="img-fluid">
-                    <a href="">
+                <div class="col-md-12 header-hero">
+                    <img src="{{ asset('storage/' . $berita->image) }}" alt="" class="berita-hero">
+                </div>
+                <div class="col-md-8 px-5  rounded overflow-hidden">
+                    <a href="/categori/{{ $categori->slug }}">
                         <p class="badge text-dark mt-2 px-3 fs-5" style="background: #AED2FF">{{ $berita->categori->nama }}
                         </p>
                     </a>
 
-                    <h4 class="color: #050a30">{{ $berita->title }}</h4>
-                    <span>12 oktober 2023</span>
+                    <h2 class="text-primary fw-bold">{{ $berita->title }}</h2>
+                    <table class="text-success">
+                        <tr>
+                            <td class="pe-2">Di Tulis Oleh </td>
+                            <td>: </td>
+                            <td class="ps-2"> {{ $berita->user->nama }}</td>
+                        </tr>
+                        <tr>
+                            <td class="pe-2">Di Buat </td>
+                            <td>: </td>
+                            <td class="ps-2"> {{ $berita->created_at->diffForHumans() }}</td>
+                        </tr>
+                    </table>
                     <p class="">{!! $berita->body !!}</p>
 
                 </div>
-                {{-- <div class="col-md-4 d-grid gap-2">
-                    <h2 class="text-light rounded" style="background: #050a30">Berita Yang Sesuai</h2>
-                    @foreach ($allBerita as $item)
-                        <div class=" row ms-2" style="background: #ba4343">
-                            <div class="col-md-5">
-                                <img src="{{ asset('storage/' . $item->image) }}" alt="" class="img-fluid ">
-                                <span class="badge text-dark mt-1 px-1"
-                                    style="background: #AED2FF">{{ $berita->categori->nama }}</span>
-                            </div>
-                            <div class="col-7 col-md-4">
-                                <p>{{ $item->title }}</p>
-                            </div>
-                        </div>
-                    @endforeach
-
-                </div> --}}
 
                 <div class="col-md-4">
-                    {{-- <h2 class="">Berita Terkait</h2>
-                    @forelse ($allBerita as $item)
-                        <a href="/berita/{{ $item->slug }}" class="card text-decoration-none text-dark shadow row"
-                            style="height: 280px; border-bottom: #050a30 solid 3px;">
-                            <img src="{{ asset('storage/' . $item->image) }}" class="card-img-top col-md-5" alt="..."
-                                style="overflow:hidden">
-                            <h5 class="card-title p-2 col-7 col-md-4">{{ $item->title }}</h5>
+                    <h3 class="mt-2 ms-2"><i class="bi bi-newspaper"></i> <u>Berita Terkait</u></h3>
+                    @foreach ($allBerita as $categori)
+                        <a href="/berita/{{ $categori->slug }}"
+                            class="d-flex align-items-center mt-2 me-2 text-decoration-none text-dark side-categori">
+                            <img src="{{ asset('storage/' . $categori->image) }}" alt=""
+                                class="image-categori ps-2">
+                            <p class="px-2">{{ Illuminate\Support\Str::words($categori->title, 8) }} </p>
                         </a>
-
-                    @empty
-                        <p>Berita Kosong😪</p>
-                    @endforelse --}}
-
-
-                    <div class="card mb-3" style="max-width: 540px;">
-                        @forelse ($allBerita as $item)
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="{{ asset('storage/' . $item->image) }}" class="img-fluid" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Card title</h5>
-                                        <p class="card-text">This is a wider card with supporting .</p>
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                    </div>
-                                </div>
-                            </div>
-                        @empty
-                            <p>Berita Kosong</p>
-                        @endforelse
-
-                    </div>
+                    @endforeach
                 </div>
 
             </div>
         </article>
     </div>
-    {{-- maps dan komentar --}}
-    @include('menu.maps')
-    {{-- akhir maps dan komentar --}}
 
     {{-- footer --}}
     @include('menu.footer')

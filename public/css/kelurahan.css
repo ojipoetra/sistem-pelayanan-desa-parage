@@ -55,7 +55,7 @@ nav .list .hover a.aktif {
     color: #050a30;
     border-radius: 5px;
     background: #fff;
-    transition: all .5s ease-out;
+    transition: all 0.5s ease-out;
 }
 
 /* header */
@@ -180,7 +180,6 @@ header .decriptions p {
 
 /*vis & misi paralax epect */
 
-
 .visi .heading-text {
     opacity: 0;
     transform: translate(0, -50px);
@@ -242,7 +241,6 @@ header .decriptions p {
         border-radius: 30% 70% 34% 66% / 51% 42% 58% 49%;
     }
 }
-
 
 .visi p {
     color: #050a30;
@@ -388,14 +386,14 @@ header .decriptions p {
     background: transparent;
     opacity: 0;
     transform: translate(0, 70px);
-    transition: .8s;
+    transition: 0.8s;
 }
 
 .scroll-top.up {
     opacity: 1;
     z-index: 999;
     transform: translate(0, 0);
-    animation: scroll-up .5s infinite;
+    animation: scroll-up 0.5s infinite;
 }
 
 @keyframes scroll-up {
@@ -487,7 +485,7 @@ footer .copyright p {
         position: fixed;
         bottom: 0;
         left: 0;
-        background: #e3f2fd;
+        background: linear-gradient(to top left, #a100ffff, #119cddff);
         width: 100%;
         height: 40px;
         box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
@@ -495,13 +493,13 @@ footer .copyright p {
 
     nav .list .hover a {
         padding: 0 !important;
-        color: #050a30;
+        color: #fff;
+        font-weight: bold;
         font-size: 20px;
     }
 
     nav .list .icon {
         display: block !important;
-
     }
 
     nav .list .text {
@@ -542,7 +540,7 @@ footer .copyright p {
     }
 
     .pendaftaran:before {
-        content: '';
+        content: "";
         top: 50px;
         position: absolute;
         /* height: 20vh; */
@@ -558,14 +556,11 @@ footer .copyright p {
 
 /*akhir bagian halaman tentang */
 
-
-
 /* bagian halaman beranda */
 .dinmentions {
     width: 700px;
     color: #050a30;
 }
-
 
 /*akhir bagian halaman beranda */
 
@@ -580,8 +575,6 @@ footer .copyright p {
 }
 
 /*akhir halaman berita */
-
-
 
 /* login */
 .box-login {
@@ -598,7 +591,6 @@ footer .copyright p {
     box-sizing: border-box;
     box-shadow: 0 1px 6px 1px rgba(0, 0, 0, 0.3);
 }
-
 
 .login .hidden,
 .login .box-login {
@@ -641,8 +633,6 @@ form {
     box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
-
-
 .field-box input {
     width: 100%;
     border: solid 2px lightgrey;
@@ -652,7 +642,7 @@ form {
     margin-bottom: 20px;
 }
 
-.field-box input:valid+.form-label {
+.field-box input:valid + .form-label {
     color: #867ae9;
     font-weight: bold;
 }
@@ -665,8 +655,8 @@ form {
     border-color: red;
 } */
 
-.field-box input:focus+.form-label,
-.field-box input:valid+.form-label {
+.field-box input:focus + .form-label,
+.field-box input:valid + .form-label {
     top: -7px;
     font-size: 12px;
 }
@@ -676,7 +666,7 @@ form {
     top: 12px;
     left: 10px;
     color: grey;
-    transition: all .4s ease;
+    transition: all 0.4s ease;
     background: #fff;
     padding: 0 6px;
 }
@@ -687,7 +677,6 @@ form {
     right: 10px;
     transition: all 5s ease-out;
 }
-
 
 header {
     position: relative;
@@ -713,7 +702,7 @@ header img {
     }
 
     .box-size:before {
-        content: '';
+        content: "";
         position: absolute;
         top: 43px;
         width: 150px;
@@ -723,7 +712,7 @@ header img {
     }
 
     .box-size:after {
-        content: '';
+        content: "";
         position: absolute;
         /* top: 10px; */
         bottom: 40px;
@@ -752,11 +741,9 @@ header img {
 
 /* akhir login */
 
-
 /* halaman pendaftaran */
 .pendaftaran {
     position: relative;
-
 }
 
 .pendaftaran .password {
@@ -774,7 +761,7 @@ header img {
 }
 
 .pendaftaran:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 20px;
     width: 80%;
@@ -786,7 +773,6 @@ header img {
 }
 
 /* akhir halaman pendaftaran */
-
 
 /* dashboard */
 /* akhir dashboard*/
